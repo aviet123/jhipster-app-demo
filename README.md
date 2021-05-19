@@ -1,0 +1,1 @@
+# jhipster-app-demo
