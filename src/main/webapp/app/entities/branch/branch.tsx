@@ -88,66 +88,66 @@ export const Branch = (props: IBranchProps) => {
           <Table responsive>
             <thead>
               <tr>
-                <th className="hand" onClick={sort('id')}>
-                  Id <FontAwesomeIcon icon="sort" />
-                </th>
+                {/*<th className="hand" onClick={sort('id')}>*/}
+                {/*  Id <FontAwesomeIcon icon="sort" />*/}
+                {/*</th>*/}
                 <th className="hand" onClick={sort('name')}>
                   Name <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={sort('address')}>
                   Address <FontAwesomeIcon icon="sort" />
                 </th>
-                <th className="hand" onClick={sort('addressDetails')}>
-                  Address Details <FontAwesomeIcon icon="sort" />
-                </th>
+                {/*<th className="hand" onClick={sort('addressDetails')}>*/}
+                {/*  Address Details <FontAwesomeIcon icon="sort" />*/}
+                {/*</th>*/}
                 <th className="hand" onClick={sort('city')}>
                   City <FontAwesomeIcon icon="sort" />
                 </th>
-                <th className="hand" onClick={sort('country')}>
-                  Country <FontAwesomeIcon icon="sort" />
-                </th>
+                {/*<th className="hand" onClick={sort('country')}>*/}
+                {/*  Country <FontAwesomeIcon icon="sort" />*/}
+                {/*</th>*/}
                 <th className="hand" onClick={sort('phone')}>
                   Phone <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={sort('district')}>
                   District <FontAwesomeIcon icon="sort" />
                 </th>
-                <th className="hand" onClick={sort('openingDate')}>
-                  Opening Date <FontAwesomeIcon icon="sort" />
-                </th>
-                <th className="hand" onClick={sort('active')}>
-                  Active <FontAwesomeIcon icon="sort" />
-                </th>
-                <th className="hand" onClick={sort('cityId')}>
-                  City Id <FontAwesomeIcon icon="sort" />
-                </th>
-                <th className="hand" onClick={sort('districtId')}>
-                  District Id <FontAwesomeIcon icon="sort" />
-                </th>
+                {/*<th className="hand" onClick={sort('openingDate')}>*/}
+                {/*  Opening Date <FontAwesomeIcon icon="sort" />*/}
+                {/*</th>*/}
+                {/*<th className="hand" onClick={sort('active')}>*/}
+                {/*  Active <FontAwesomeIcon icon="sort" />*/}
+                {/*</th>*/}
+                {/*<th className="hand" onClick={sort('cityId')}>*/}
+                {/*  City Id <FontAwesomeIcon icon="sort" />*/}
+                {/*</th>*/}
+                {/*<th className="hand" onClick={sort('districtId')}>*/}
+                {/*  District Id <FontAwesomeIcon icon="sort" />*/}
+                {/*</th>*/}
                 <th />
               </tr>
             </thead>
             <tbody>
               {branchList.map((branch, i) => (
                 <tr key={`entity-${i}`} data-cy="entityTable">
-                  <td>
-                    <Button tag={Link} to={`${match.url}/${branch.id}`} color="link" size="sm">
-                      {branch.id}
-                    </Button>
-                  </td>
+                  {/*<td>*/}
+                  {/*  <Button tag={Link} to={`${match.url}/${branch.id}`} color="link" size="sm">*/}
+                  {/*    {branch.id}*/}
+                  {/*  </Button>*/}
+                  {/*</td>*/}
                   <td>{branch.name}</td>
                   <td>{branch.address}</td>
-                  <td>{branch.addressDetails}</td>
+                  {/*<td>{branch.addressDetails}</td>*/}
                   <td>{branch.city}</td>
-                  <td>{branch.country}</td>
+                  {/*<td>{branch.country}</td>*/}
                   <td>{branch.phone}</td>
                   <td>{branch.district}</td>
-                  <td>
-                    {branch.openingDate ? <TextFormat type="date" value={branch.openingDate} format={APP_LOCAL_DATE_FORMAT} /> : null}
-                  </td>
-                  <td>{branch.active ? 'true' : 'false'}</td>
-                  <td>{branch.cityId}</td>
-                  <td>{branch.districtId}</td>
+                  {/*<td>*/}
+                  {/*  {branch.openingDate ? <TextFormat type="date" value={branch.openingDate} format={APP_LOCAL_DATE_FORMAT} /> : null}*/}
+                  {/*</td>*/}
+                  {/*<td>{branch.active ? 'true' : 'false'}</td>*/}
+                  {/*<td>{branch.cityId}</td>*/}
+                  {/*<td>{branch.districtId}</td>*/}
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${branch.id}`} color="info" size="sm" data-cy="entityDetailsButton">

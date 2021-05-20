@@ -79,8 +79,15 @@ public class BranchServiceImpl implements BranchService {
         branchRepository.deleteById(id);
     }
 
+    @Override
     public Long countAllBranchesActive() {
         Long count = branchRepository.findAll().stream().filter(Branch::getActive).count();
+        return count;
+    }
+
+    @Override
+    public Long countBranchesForALocation(Integer cityId) {
+        Long count = branchRepository.findAll().stream().filter(branch -> branch.getCityId().equals(cityId)).count();
         return count;
     }
 

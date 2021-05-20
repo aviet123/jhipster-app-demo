@@ -52,4 +52,6 @@ public interface BranchService {
     Long countAllBranchesActive();
 
     List<BranchDTO> getAllBranchesForALocation(Integer id);
+
+    Long countBranchesForALocation(Integer cityId);
 }
