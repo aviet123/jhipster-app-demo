@@ -41,6 +41,8 @@
     "clientPackageManager": "npm",
     "clientThemeVariant": "",
     "otherModules": [],
-    "languages": ["en", "fr"]
+    "languages": ["en", "fr"],
+    "entities": ["Branch"],
+    "lastLiquibaseTimestamp": 1621421961000
   }
 }
