@@ -1,6 +1,7 @@
 package com.mycompany.myapp.web.rest;
 
 import com.mycompany.myapp.repository.BranchRepository;
+import com.mycompany.myapp.respone.branch.BranchCountResponse;
 import com.mycompany.myapp.service.BranchService;
 import com.mycompany.myapp.service.dto.BranchDTO;
 import com.mycompany.myapp.web.rest.errors.BadRequestAlertException;
@@ -177,5 +178,18 @@ public class BranchResource {
             .noContent()
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString()))
             .build();
+    }
+
+    @GetMapping("branches/count")
+    public ResponseEntity<Object> countAllBranches() {
+        Long count = branchService.countAllBranchesActive();
+        return ResponseEntity.ok().body(new BranchCountResponse(count));
+    }
+
+    @GetMapping("branches/locations/{id}")
+    public ResponseEntity<List<BranchDTO>> getAllBranchesForALocation(@PathVariable Integer id) {
+        log.debug("REST request to get Branches for a location : {}", id);
+        List<BranchDTO> branchDTOList = branchService.getAllBranchesForALocation(id);
+        return ResponseEntity.ok().body(branchDTOList);
     }
 }

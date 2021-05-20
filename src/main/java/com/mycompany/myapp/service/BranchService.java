@@ -1,6 +1,7 @@
 package com.mycompany.myapp.service;
 
 import com.mycompany.myapp.service.dto.BranchDTO;
+import java.util.List;
 import java.util.Optional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -47,4 +48,8 @@ public interface BranchService {
      * @param id the id of the entity.
      */
     void delete(Long id);
+
+    Long countAllBranchesActive();
+
+    List<BranchDTO> getAllBranchesForALocation(Integer id);
 }

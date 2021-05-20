@@ -2,10 +2,14 @@ package com.mycompany.myapp.service.impl;
 
 import com.mycompany.myapp.domain.Branch;
 import com.mycompany.myapp.repository.BranchRepository;
+import com.mycompany.myapp.respone.branch.BranchCountResponse;
 import com.mycompany.myapp.service.BranchService;
 import com.mycompany.myapp.service.dto.BranchDTO;
 import com.mycompany.myapp.service.mapper.BranchMapper;
+import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -73,5 +77,18 @@ public class BranchServiceImpl implements BranchService {
     public void delete(Long id) {
         log.debug("Request to delete Branch : {}", id);
         branchRepository.deleteById(id);
+    }
+
+    public Long countAllBranchesActive() {
+        Long count = branchRepository.findAll().stream().filter(Branch::getActive).count();
+        return count;
+    }
+
+    @Override
+    public List<BranchDTO> getAllBranchesForALocation(Integer id) {
+        List<BranchDTO> branchDTOList = branchRepository.findAll().stream().map(branchMapper::toDto).collect(Collectors.toList());
+        Map<Integer, List<BranchDTO>> branchesMap = branchDTOList.stream().collect(Collectors.groupingBy(BranchDTO::getCityId));
+        List<BranchDTO> branchDTOSForLocation = branchesMap.getOrDefault(id, branchDTOList);
+        return branchDTOSForLocation;
     }
 }
